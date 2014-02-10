@@ -6,11 +6,13 @@ html
       = content_for?(:title) ? yield(:title) : 'Drone Map'
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Drone Map'}"
     == stylesheet_link_tag "application", :media => "all", "data-turbolinks-track" => true
+    == google_maps_api
     == javascript_include_tag "application", "data-turbolinks-track" => true
     == csrf_meta_tags
   body
     header
       == render 'layouts/navigation'
     main[role="main"]
-      == render 'layouts/messages'
-      == yield
+      .container
+        == render 'layouts/messages'
+        == yield
