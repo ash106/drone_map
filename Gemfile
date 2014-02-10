@@ -15,6 +15,7 @@ gem 'slim-rails'
 gem 'unicorn'
 gem 'unicorn-rails'
 gem 'unirest'
+gem 'gon'
 group :development do
   gem 'powder'
   gem 'pry-rails'
