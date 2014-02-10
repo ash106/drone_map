@@ -14,7 +14,16 @@ gem 'simple_form'
 gem 'slim-rails'
 gem 'unicorn'
 gem 'unicorn-rails'
+gem 'unirest'
 group :development do
+  gem 'powder'
+  gem 'pry-rails'
+  gem 'pry-theme'
+  gem 'better_errors'
+  gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
+  gem 'meta_request'
+  gem 'xray-rails'
+  gem 'letter_opener'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'guard-bundler'
