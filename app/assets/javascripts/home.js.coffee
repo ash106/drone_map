@@ -4,7 +4,6 @@ $ ->
   mapOptions =
     center: new google.maps.LatLng(-34.397, 150.644)
     zoom: 8
-    mapTypeId: google.maps.MapTypeId.SATELLITE
   map = new google.maps.Map($("#map_canvas")[0], mapOptions)
   infoWindow = new google.maps.InfoWindow
 
