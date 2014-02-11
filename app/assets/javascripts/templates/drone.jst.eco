@@ -1,0 +1,34 @@
+<div id="content">
+  <h1 id="firstHeading" class="firstHeading">
+    <% if @strike["town"]: %>
+      <%= @strike["town"] %>, 
+    <% end %>
+    <%= @strike["country"] %> <small>&#35;<%= @strike["number"] %></small>
+  </h1>
+  <div id="bodyContent">
+    <p>
+      Deaths: <%= @strike["deaths"] %>
+    </p>
+    <% if @strike["civilians"]: %>
+      <p>
+        Civilians: <%= @strike["civilians"] %>
+      </p>
+    <% end %>
+    <% if @strike["injuries"]: %>
+      <p>
+        Injuries: <%= @strike["injuries"] %>
+      </p>
+    <% end %>
+    <% if @strike["children"]: %>
+      <p>
+        Children: <%= @strike["children"] %>
+      </p>
+    <% end %>
+    <p>
+      <%= @strike["bij_summary_short"] %>
+    </p>
+    <p>
+      <a href="<%= @strike["bij_link"] %>" target="_blank">Link</a>
+    </p>
+  </div>
+</div>

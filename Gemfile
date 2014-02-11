@@ -17,6 +17,8 @@ gem 'unicorn-rails'
 gem 'unirest'
 gem 'gon'
 gem 'rails_12factor', group: :production
+gem 'eco'
+gem 'underscore-rails'
 group :development do
   gem 'powder'
   gem 'pry-rails'

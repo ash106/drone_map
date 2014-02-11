@@ -8,21 +8,23 @@ $ ->
   map = new google.maps.Map($("#map_canvas")[0], mapOptions)
   infoWindow = new google.maps.InfoWindow
 
-  for strike in gon.strike_locs
+  for strike in gon.strikes
     marker = new google.maps.Marker
       position: new google.maps.LatLng(strike["lat"], strike["lon"])
       map: map
       draggable: false
     markers.push marker
     marker.info = "#{strike["number"]}"
-    listenMarker = (marker) ->
+    listenMarker = (marker, strike) ->
       google.maps.event.addListener marker, 'click', ->
-        openInfoWindow marker
-    listenMarker marker
+        openInfoWindow marker, strike
+    listenMarker marker, strike
   
-  openInfoWindow = (marker) ->
+  openInfoWindow = (marker, strike) ->
     infoWindow.close()
-    infoWindow.setContent marker.info
+    info = { strike: strike }
+    console.log strike
+    infoWindow.setContent JST['templates/drone'](info)
     infoWindow.open(map, marker)
 
 
