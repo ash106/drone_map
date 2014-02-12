@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require markerclusterer
 //= require underscore
 //= require_tree ./templates
 //= require_tree .
