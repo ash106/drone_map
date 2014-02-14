@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require markerclusterer
+//= require spiderfier
 //= require underscore
 //= require_tree ./templates
 //= require_tree .

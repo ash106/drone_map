@@ -7,22 +7,29 @@ $ ->
     mapTypeId: google.maps.MapTypeId.ROADMAP
   map = new google.maps.Map($("#map_canvas")[0], mapOptions)
   infoWindow = new google.maps.InfoWindow
+  oms = new OverlappingMarkerSpiderfier map
+
+  oms.addListener "click", (marker, event) ->
+    openInfoWindow marker
+
+  oms.addListener "spiderfy", (markers) ->
+    infoWindow.close()
 
   for strike in gon.strikes
     marker = new google.maps.Marker
       position: new google.maps.LatLng(strike["lat"], strike["lon"])
       draggable: false
     markers.push marker
-    marker.info = "#{strike["number"]}"
-    listenMarker = (marker, strike) ->
-      google.maps.event.addListener marker, 'click', ->
-        openInfoWindow marker, strike
-    listenMarker marker, strike
+    marker.info = strike
+    oms.addMarker marker
+    # listenMarker = (marker) ->
+    #   google.maps.event.addListener marker, 'click', ->
+    #     openInfoWindow marker
+    # listenMarker marker
   
-  openInfoWindow = (marker, strike) ->
+  openInfoWindow = (marker) ->
     infoWindow.close()
-    info = { strike: strike }
-    console.log strike
+    info = { strike: marker.info }
     infoWindow.setContent JST['templates/drone'](info)
     infoWindow.open(map, marker)
 
