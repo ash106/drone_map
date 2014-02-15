@@ -19,8 +19,8 @@ $ ->
     marker = new google.maps.Marker
       position: new google.maps.LatLng(strike["lat"], strike["lon"])
       draggable: false
-    markers.push marker
     marker.info = strike
+    markers.push marker
     oms.addMarker marker
     # listenMarker = (marker) ->
     #   google.maps.event.addListener marker, 'click', ->
